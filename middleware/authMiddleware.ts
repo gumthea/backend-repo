@@ -23,12 +23,8 @@ export const authMiddleware = async (req: Request, res: Response, next: NextFunc
   }
 
   try {
-    if (token === 'test-token') {
-      req.userId = 'test-user';
-    } else {
-      const decodedToken = await admin.auth().verifyIdToken(token as string);
-      req.userId = decodedToken.uid;
-    }
+    const decodedToken = await admin.auth().verifyIdToken(token as string);
+    req.userId = decodedToken.uid;
     
     return next();
   } catch (error) {

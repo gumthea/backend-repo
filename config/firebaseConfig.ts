@@ -1,11 +1,14 @@
 import * as admin from 'firebase-admin';
-import path from "path";
 
-const serviceAccountPath = path.resolve(__dirname, "../../config/serviceAccountKey.json");
+const serviceAccount =  {
+  projectId: 'backend-repo-5f2b7',
+  clientEmail: 'firebase-adminsdk-fbsvc@backend-repo-5f2b7.iam.gserviceaccount.com',
+  privateKey: `-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC/oprhmIPji2d8\n/C8xUH5pOHAf1c+cBbwjFZ6iF48P1VMlF/Y2WpyCKVG4j8DDyz39TGxVUXXYkS99\nqg04HtRsuDs3b86nt1p8cMRt1YM4W4Xl/zKI6tGnoghbQavbiyp9zSBRSDRcx2Hs\n1o4BX3pcC/e6Jh/H3iWnLx68oG34X2JzOoLRpmVEeHT6OpH8Ym72cUgfkmxD8i2I\nzljhUVsQN2IDXfPU9gFiO6akQv4V6sDTqDMEQ088HwU+CQXnSGn4tXSAE4hpc8Jx\nXuOAIibWkfhEf905YfIyMFmAG57q0i9qmcVMt7ms5k1hoA0XyUSXHLg7/jYT1st5\nnag2YFV9AgMBAAECggEAXxGrlYyErZ9sfUhcnzHoLIoHsftv7d64eY1Rr+dRHVE+\n2NGc31UvfLFD7fQ+9MNA4wcFXYQ2mvRX45c3zKYayz7Qfc2Vb4XaOY72G+kHGq/o\n6vOiHeOkk+2iCKe5Owa800EurbRM6dQuJAFC3LKBsOVtBefA73YpJtoM/RX3yHWp\nigccFfkU5KnR0cluG5wmzbmymIkfMRV2V7hymh5UAXt1tPs1lqhh6KQGx7MNh8Jj\ng9iJIAFBP8t70YWy9Qmm8axbwnmTNAUI/9PvfeHw/RssTVGCxVSdTwPhZQedemXI\nYHyB/L7Lv3qQf91xmmu8GrHprgU2XbYqkXChdDZbjwKBgQDomfpaK7d58z86L+hE\n/hAzoRVSQz0l8bTymCLIOIq9RDbFBDvuDkxXnPnZxOTMm50r/2OJYMhvN6wbWFSP\ngHWeaa3zUKz9pW80mtyk837HTTFjvUB+g+scIzGhpin11FAe1OBfGUsCekexnCAM\nb3X0cBz/vuz2Ms6iw963jLqJGwKBgQDS6aaY5dQgGhjEBgoA5FXXtsFepARtfQJL\nckCklmwe6RrF1cSfMy1TcueL4C0kGvx7ZgmHqZRKPWEWFeWfkofR8ByvmWFrLsky\nURkS+wjeY32hs48x3kaHWqJSmgUKwnG+dUDQjjZeu3wuF7Y38PKZDKYW04ICLwjL\na1D5X1jdRwKBgC8JfFQhxQ+3PhEBQSI6koIuUAZ7rHDw6Rup4lbFAGF32u+KhKgG\nYi/RgcElDPPHgEg2dCWC2eWLx5UcDrWaT67CRjgPF3yPqOZlbrs4tmmNVbCKw/ER\nskjVYSMEXDXnQnCJsfnpPn74xWjIXr7FB4Bv751UOc0rxxepLm/F2K8DAoGAG9F9\ni8UkiWdnxNMXFq8HM4CDWLxBaT+HwfO72vmMITeVtGpRmL3jSJJrP+O9kHmOu6fl\nseMIEBKwb31L4BQvnd0Rq4eLdduh5eUUbZB2xv5QX7eTN3ydyNSHfGWcLKMg5YIJ\nnnhja3NHGb0+53n8RXuJnJEhILCbdFkfQQT2b5kCgYEA49oUxAGsYXa5nzf6boeJ\nrEWqkJZt82zu8QXIlknmzEJEZzxxz2O0fI/B9JBcRljtjIArUkm9lfM+PP1ggIHf\nZCeVEDs4nTjIXu4Gtxtj5ibrcyKe9avMF8Xi457/16JAHx85agNN39rnT+KJ82GB\nKXGd0e7BDHQRtbxxpMQJ6kk=\n-----END PRIVATE KEY-----\n`,
+};
 
 if (!admin.apps.length) {
   admin.initializeApp({
-    credential: admin.credential.cert(serviceAccountPath as any),
+    credential: admin.credential.cert(serviceAccount),
   });
 }
 
